@@ -26,3 +26,8 @@
 ### Run 04 Form
 #### 입력폼 만들기
 #### form 데이터를 DTO로 객채로 받기
+
+### Run 05 DB연결
+#### DTO가 넘길 정보를 Entity가 받게 하여 DB로 넘어갈수 있게끔 설정한다.
+#### h2 DB를 사용하며 main/resources에 application.properties에서 spring.h2.console.enabled=true 의 설정값을 입력한다.
+#### Lombok 사용 필수기능을 간소화하여 코드 리펙토링 작업을 한다.
