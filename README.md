@@ -31,3 +31,6 @@
 #### DTO가 넘길 정보를 Entity가 받게 하여 DB로 넘어갈수 있게끔 설정한다.
 #### h2 DB를 사용하며 main/resources에 application.properties에서 spring.h2.console.enabled=true 의 설정값을 입력한다.
 #### Lombok 사용 필수기능을 간소화하여 코드 리펙토링 작업을 한다.
+
+### Run 06 데이터 조회
+#### JPA를 사용하여 데이터를 조회할 수 있다.
