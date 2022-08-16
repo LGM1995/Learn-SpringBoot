@@ -34,3 +34,11 @@
 
 ### Run 06 데이터 조회
 #### JPA를 사용하여 데이터를 조회할 수 있다.
+
+### Run 07 데이터를 ArrayList로 받기
+#### Entity의 데이터를 ArrayList로 받아 mustache에서 데이터를 반복하여 활용한다.
+
+### Run 08 Link 와 Redirect 사용하기
+#### 페이지의 자연스러운 이동과 연결을 위해 Link 와 Redirect를 사용하여 페이지간 이동 흐름을 자연스럽게 한다.
+
+### Run 09 update 페이지 만들기
