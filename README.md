@@ -42,3 +42,17 @@
 #### 페이지의 자연스러운 이동과 연결을 위해 Link 와 Redirect를 사용하여 페이지간 이동 흐름을 자연스럽게 한다.
 
 ### Run 09 update 페이지 만들기
+#### form 은 get과 post만 지원함
+
+### Run 10 RestAPI
+#### 모든 클라이언트(핸드폰, 테블릿, 워치, CCTV등)가 사용할 수 있도록 화면을 보내는게 아니고 데이터를 보내준다
+#### 데이터를 보낼때는 XML과 JSON으로 보내는 것이 가능하며 JSON(자바스크립트에서 사용이 가능한 객체적 표현)이 추세이다
+
+
+### Run 11 RestController 와 일반 Controller
+#### RestController는 텍스트나 JSON을 반환하는 반면에 Controller는 View를 반환한다.
+
+### Run 12 Service 계층
+#### RestController와 Repository 사이에 Service 계층을 추가하여 처리 업무의 순서를 총괄함
+#### 트랜잭션은 일련의 과정 전체를 예기한다. 
+#### 만약 식당에 예약 시스템이 중간에 실패 된다면 이 일련의 과정은 초기화 되어 다시 진행되어야 하며 이를 롤백이라 한다.
