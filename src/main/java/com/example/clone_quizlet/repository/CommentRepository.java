@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
-    // 트겅 게시글의 모든 댓글 조회
+    // 특정 게시글의 모든 댓글 조회
     @Query(value =
             "SELECT * " +
             "FROM comment " +

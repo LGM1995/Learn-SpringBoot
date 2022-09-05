@@ -1,9 +1,12 @@
 package com.example.clone_quizlet.controller;
 
 import com.example.clone_quizlet.dto.ArticleForm;
+import com.example.clone_quizlet.dto.CommentDto;
 import com.example.clone_quizlet.entity.Article;
 import com.example.clone_quizlet.repository.ArticleRepository;
+import com.example.clone_quizlet.service.CommentService;
 import java.util.ArrayList;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +24,8 @@ public class ArticleController {
 
     @Autowired
     private ArticleRepository articleRepository;
+    @Autowired
+    private CommentService commentService;
 
     @GetMapping("/articles/new")
     public String newArticleForm() {
@@ -51,9 +56,11 @@ public class ArticleController {
 
         // 1: id로 데이터 가져오기
         Article articeEntity = articleRepository.findById(id).orElse(null);
+        List<CommentDto> commentDtos = commentService.comments(id);
 
         // 2: 가져온 데이터를 모델에 등록!
         model.addAttribute("article", articeEntity);
+        model.addAttribute("commentDtos", commentDtos);
 
         // 3: 보여줄 페이지를 설정!
         return "articles/show";
