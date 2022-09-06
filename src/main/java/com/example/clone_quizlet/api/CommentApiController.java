@@ -1,5 +1,6 @@
 package com.example.clone_quizlet.api;
 
+import com.example.clone_quizlet.annotation.RunningTime;
 import com.example.clone_quizlet.dto.CommentDto;
 import com.example.clone_quizlet.service.CommentService;
 import java.util.List;
@@ -50,6 +51,7 @@ public class CommentApiController {
     }
 
     // 댓글 삭제
+    @RunningTime
     @DeleteMapping("/api/comments/{id}")
     public ResponseEntity<CommentDto> delete(@PathVariable Long id) {
         // 서비스에게 위임

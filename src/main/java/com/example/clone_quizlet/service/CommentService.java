@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+@Slf4j
 @Service
 public class CommentService {
     @Autowired
@@ -41,6 +42,7 @@ public class CommentService {
         // DTO로 변경하여 변환
         return CommentDto.createCommentDto(created);
     }
+
 
     @Transactional
     public CommentDto update(Long id, CommentDto dto) {
