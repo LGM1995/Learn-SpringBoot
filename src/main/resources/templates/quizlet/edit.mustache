@@ -1,0 +1,27 @@
+{{>layouts/topnavigation}}
+
+{{#member}}
+  <form class="container" action="/quizlet/update" method="post">
+    <input name="id" type="hidden" value="{{id}}" />
+    <div class=""mb-3>
+      <label class=""form="label">이름</label>
+      <input type="text" class="form-control" name="title" value="{{name}}">
+    </div>
+    <div class=""mb-3>
+      <label class=""form="label">이메일</label>
+      <input type="text" class="form-control" name="email" value="{{email}}">
+    </div>
+    <div class=""mb-3>
+      <label class=""form="label">비밀번호</label>
+      <input type="text" class="form-control" name="password" value="{{password}}">
+    </div>
+    <div class=""mb-3>
+      <label class=""form="label">별명</label>
+      <input type="text" class="form-control" name="nickname" value="{{nickname}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/quizlet/{{id}}">Back</a>
+  </form>
+{{/member}}
+
+{{>layouts/undernavigation}}

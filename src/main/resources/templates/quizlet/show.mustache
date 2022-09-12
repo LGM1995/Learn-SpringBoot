@@ -1,0 +1,29 @@
+{{>layouts/topnavigation}}
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Email</th>
+    <th scope="col">Nickname</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#member}}
+    <tr>
+      <th>{{id}}</th>
+      <th>{{name}}</th>
+      <td>{{email}}</td>
+      <td>{{nickname}}</td>
+    </tr>
+  {{/member}}
+  </tbody>
+</table>
+
+<a href="/quizlet/{{member.id}}/edit" class="btn btn-primary">Edit</a>
+<a href="/quizlet/{{member.id}}/delete" class="btn btn-danger">Delete</a>
+<a href="/quizlet">Go to Article List</a>
+
+{{>notes/_notes}}
+
+{{>layouts/undernavigation}}

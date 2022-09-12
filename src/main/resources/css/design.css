@@ -1,0 +1,8 @@
+@charset "UTF-8"
+
+.MainPoster-background {
+    background-image: var(--data-background-image);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

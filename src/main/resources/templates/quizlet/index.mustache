@@ -1,0 +1,25 @@
+{{>layouts/topnavigation}}
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Email</th>
+    <th scope="col">NicName</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#memberList}}
+    <tr>
+      <th>{{id}}</th>
+      <td><a href="/quizlet/{{id}}">{{name}}</a></td>
+      <td>{{email}}</td>
+      <td>{{nickname}}</td>
+    </tr>
+  {{/memberList}}
+  </tbody>
+</table>
+
+<a href="/quizlet/new">New Article</a>
+
+{{>layouts/undernavigation}}

@@ -18,6 +18,36 @@
                   nickname = :nickname
             ]]>
         </query>
-
       </named-native-query>
+
+  <named-native-query
+    name="Note.findByTitle"
+    result-class="com.example.clone_quizlet.entity.Note">
+    <query>
+      <![CDATA[
+              SELECT
+                  *
+              FROM
+                  note
+              WHERE
+                  title = :title
+            ]]>
+    </query>
+  </named-native-query>
+
+  <named-native-query
+    name="Word.findByName"
+    result-class="com.example.clone_quizlet.entity.Word">
+    <query>
+      <![CDATA[
+              SELECT
+                  *
+              FROM
+                  word
+              WHERE
+                  name = :name
+            ]]>
+    </query>
+  </named-native-query>
+
 </entity-mappings>
