@@ -1,10 +1,12 @@
 package com.example.clone_quizlet.repository;
 
+import com.example.clone_quizlet.entity.Article;
 import com.example.clone_quizlet.entity.User;
-import java.util.Optional;
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.ArrayList;
+import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
-    Optional<User> findByUserId(String userId);
+public interface UserRepository extends CrudRepository<User, Long> {
 
+    @Override
+    ArrayList<User> findAll();
 }

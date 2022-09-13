@@ -1,48 +1,47 @@
 package com.example.clone_quizlet.controller;
 
+import com.example.clone_quizlet.dto.ArticleForm;
 import com.example.clone_quizlet.dto.UserDto;
-import com.example.clone_quizlet.service.UserService;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import com.example.clone_quizlet.entity.Article;
+import com.example.clone_quizlet.entity.User;
+import com.example.clone_quizlet.repository.UserRepository;
+import javax.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequiredArgsConstructor
 @Controller
+@Slf4j
 public class UserController {
-
     @Autowired
-    private UserService userService;
+    private UserRepository userRepository;
 
-    @PostMapping("/user")
-    public String signup(UserDto userDto) {
-        userService.save(userDto);
-        return "redirect:/login";
+
+    @GetMapping("/users/new")
+    public String newUserForm() {
+        return "users/new";
     }
 
-    @GetMapping("/")
+    @PostMapping("/users/create")
+    public String createUser(UserDto userDto, HttpSession session) {
+        log.info(userDto.toString());
 
-//    @GetMapping("/logout")
-//    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
-//        new SecurityContextLogoutHandler().logout(request,response, SecurityContextHolder
-//            .getContext().getAuthentication());
-//        return "redirect:/login";
-//    }
+        // 1. Dto를 변환! Entity!
+        User user = userDto.toEntity();
+        log.info(user.toString());
 
-    @GetMapping("/logout")
-    public String logoutPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null) {
-            new SecurityContextLogoutHandler().logout(request, response, auth);
-        }
-        return "redirect:/login";
+        // 2. Repository에게 Entity를 DB안에 저장하게 함!
+        User saved = userRepository.save(user);
+        log.info(saved.toString());
+
+        // 3. 회원가입 정보를 session에 저장하고 리다이렉트 한다.
+        session.setAttribute("userName", user.getUsername());
+        System.out.println(session.getAttribute("userName"));
+        System.out.println(user.getUsername());
+        return "redirect:/";
     }
 }

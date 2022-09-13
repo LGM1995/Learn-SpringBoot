@@ -1,0 +1,9 @@
+{{>layouts/topnavigation}}
+{{#userName}}
+  <h1>지금 바로 학습을 시작하세요</h1>
+{{/userName}}
+{{^userName}}
+  <h1>지금 바로 회원가입 하세요</h1>
+  <a href="/users/new" class="btn btn-success active" role="button">회원가입</a>
+{{/userName}}
+{{>layouts/undernavigation}}
