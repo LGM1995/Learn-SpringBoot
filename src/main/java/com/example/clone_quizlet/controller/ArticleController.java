@@ -69,7 +69,7 @@ public class ArticleController {
     @GetMapping("/articles")
     public String index(Model model) {
         // 1: 모든 Article을 가져온다!
-        ArrayList<Article> articleEntityList = articleRepository.findAll();
+        List<Article> articleEntityList = articleRepository.findByTitle("가가가가");
 
         // 2: 가져온 Article 묶음을 뷰로 전달!
         model.addAttribute("articleList", articleEntityList);

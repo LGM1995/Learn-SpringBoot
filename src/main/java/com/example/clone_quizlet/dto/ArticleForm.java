@@ -17,4 +17,5 @@ public class ArticleForm {
 
         return new Article(id, title, content);
     }
+
 }

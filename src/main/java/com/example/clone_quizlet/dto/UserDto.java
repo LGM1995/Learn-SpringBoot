@@ -1,21 +1,28 @@
 package com.example.clone_quizlet.dto;
 
-import com.example.clone_quizlet.entity.Article;
+import com.example.clone_quizlet.entity.Role;
 import com.example.clone_quizlet.entity.User;
-import javax.persistence.Column;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @ToString
 public class UserDto {
-    private Long id; // 회원 넘버
-    private String username; // 회원 아이디
-    private String email; // 회원 이메일
-    private String password; // 회원 비밀번호
-    private String nickname; // 회원 닉네임
+    private Long id;
+    private String username;
+    private String password;
+    private boolean enabled;
+    private Role role;
 
     public User toEntity() {
-        return new User(id, username, email, password, nickname);
+        return new User(id, username, password);
     }
+
 }

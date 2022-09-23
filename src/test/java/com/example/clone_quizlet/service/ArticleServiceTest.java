@@ -164,23 +164,23 @@ class ArticleServiceTest {
         assertEquals(expected, article);
     }
 
-    @Test
-    @Transactional
-    void update_실패____id만_있는_dto_입력() {
-        // 준비
-        Long id = 1L;
-        ArticleForm dto = new ArticleForm(id, null,null);
-
-        // 예상 update에 실패하였기 때문에 값이 변하지 않을것이다.
-        Article expected = articleService.show(id);
-
-        // 실제
-        Article article = articleService.update(id, dto);
-
-        // 비교
-        assertEquals(expected.toString(), article.toString());
-
-    }
+//    @Test
+//    @Transactional
+//    void update_실패____id만_있는_dto_입력() {
+//        // 준비
+//        Long id = 1L;
+//        ArticleForm dto = new ArticleForm(id, null,null);
+//
+//        // 예상 update에 실패하였기 때문에 값이 변하지 않을것이다.
+//        Article expected = articleService.show(id);
+//
+//        // 실제
+//        Article article = articleService.update(id, dto);
+//
+//        // 비교
+//        assertEquals(expected.toString(), article.toString());
+//
+//    }
 
     @Test
     @Transactional

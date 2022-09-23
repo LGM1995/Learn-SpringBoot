@@ -8,29 +8,47 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '18'
 
+configurations {
+	customProvidedRuntime
+}
+
+
 repositories {
 	mavenCentral()
 }
 
 dependencies {
 	// PostgreSQL 드라이버 추가!
-	runtimeOnly 'org.postgresql:postgresql'
+//	runtimeOnly 'org.postgresql:postgresql'
 
 	// 롬복 추가!
 	compileOnly 'org.projectlombok:lombok'
+	testCompileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-mustache'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
 	// 로그인 구현을 위한 spring security 추가
-	implementation 'org.springframework.boot:spring-boot-starter-security'
+//	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// 파라미터에 대한 검증수단으로 validation을 사용 dto를 백단에서 검증한다.
+//	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+//	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+
+//	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+//	implementation 'mysql:mysql-connector-java'
+
+//	customProvidedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.named('test') {
+test {
 	useJUnitPlatform()
 }

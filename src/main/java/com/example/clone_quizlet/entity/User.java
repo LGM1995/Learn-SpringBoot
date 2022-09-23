@@ -2,27 +2,47 @@ package com.example.clone_quizlet.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Getter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
 public class User {
-    @Id // 대표 값 회원 번호
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // 회원 넘버
+
+    @Id // 대표값을 지정! like a 주민등록번호
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // DB가 id를 자동 생성 에노테이션!
+    private Long id;
     @Column
-    private String username; // 회원 아이디
+    private String username;
     @Column
-    private String email; // 회원 이메일
+    private String password;
     @Column
-    private String password; // 회원 비밀번호
+    private boolean enabled;
+    @Enumerated(EnumType.STRING)
     @Column
-    private String nickname; // 회원 별명
+    private Role role;
+
+    // 현재는 비밀번호 수정만 가능
+    public void patch(User user) {
+        if (user.password != null)
+            this.password = user.password;
+    }
+
+    public User(Long id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.enabled = true;
+        this.role = Role.USER;
+    }
 }
