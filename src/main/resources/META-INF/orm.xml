@@ -20,19 +20,5 @@
         </query>
       </named-native-query>
 
-      <named-native-query
-        name="User.findByUserName"
-        result-class="com.example.clone_quizlet.entity.User">
-        <query>
-          <![CDATA[
-                  SELECT
-                      *
-                  FROM
-                      user
-                  WHERE
-                      username = :username
-                ]]>
-        </query>
-      </named-native-query>
 
 </entity-mappings>
